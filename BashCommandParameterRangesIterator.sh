@@ -9,7 +9,7 @@ runOverRangesRecursive() {
 	# base case
 	if ((length <= paramIndex)); then
 		result=$(echo "${accumulatedParams%?}")
-		printf "$command\n" "$result"
+		$(printf "$command\n" "$result")
 		return 0
 	fi
 
