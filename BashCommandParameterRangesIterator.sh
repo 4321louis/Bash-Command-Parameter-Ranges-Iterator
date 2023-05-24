@@ -32,7 +32,8 @@ runOverRanges() {
 	listOfParams=("${!listOfParamRanges[@]}")
 	listOfRanges=("${listOfParamRanges[@]}")
 	# remove weird commas
-	for i in $(seq 0 1 $("$length"-1)); do
+	for ((i = 0; i < length; i++)); do
+		echo $i
 		listOfRanges[$i]=$(echo "${listOfRanges[$i]}" | tr -d ',')
 	done
 	
