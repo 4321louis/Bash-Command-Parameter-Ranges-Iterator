@@ -6,4 +6,4 @@ declare -A paramRanges=(
   ["Release_freq"]=$(seq 0.01 0.01 0.20)
 )
 
-runOverRanges "slim %s Inversion_drive.slim" "-d" paramRanges
+runOverRanges "echo %s Inversion_drive.slim" "-d" paramRanges
