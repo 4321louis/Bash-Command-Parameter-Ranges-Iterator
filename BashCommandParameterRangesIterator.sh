@@ -32,7 +32,9 @@ runOverRanges() {
 	listOfParams=("${!listOfParamRanges[@]}")
 	listOfRanges=("${listOfParamRanges[@]}")
 	# remove weird commas
-	listOfRanges=$(echo "$listOfRanges" | sed 's/,$//;s/,//g')
+	for i in $(seq 0 1 $("$length"-1)); do
+		listOfRanges[$i]=$(echo "${listOfRanges[$i]}" | tr -d ',')
+	done
 	
 	runOverRangesRecursive "$command" "$flag" "$length" 0 ""
 }
