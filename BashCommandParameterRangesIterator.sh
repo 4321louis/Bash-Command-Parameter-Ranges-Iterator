@@ -10,7 +10,6 @@ runOverRangesRecursive() {
 	# base case
 	if ((length <= paramIndex)); then
 		if [ -n "$minAmountForIgnore" ]; then
-			echo wtf
 			amountMatching="$(grep -c $accumulatedPatternToIgnore $fileWithDataPointsToIgnore)"
 			if [ "$amountMatching" -ge "$minAmountForIgnore" ]; then
 				return 0
@@ -25,10 +24,8 @@ runOverRangesRecursive() {
 	local range="${listOfRanges[$paramIndex]}"
 	for v in $range
 	do
-		echo wtf1
 		newParams="$accumulatedParams$flag ${listOfParams[$paramIndex]}=$v"
         runOverRangesRecursive "$command" "$flag" "$length" $((paramIndex+1)) "$newParams " "${accumulatedPatternToIgnore/${listOfParams[$paramIndex]}/$v}"
-		echo wtf2
 	done
 	
 }
